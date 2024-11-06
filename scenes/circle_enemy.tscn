@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://kace24d382um"]
+
+[ext_resource type="Script" path="res://Scripts/circle_enemy.gd" id="1_usal8"]
+
+[node name="circle_enemy" type="Area2D"]
+script = ExtResource("1_usal8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

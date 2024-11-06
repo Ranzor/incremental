@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://wcfy53w4e1tf"]
+
+[ext_resource type="PackedScene" uid="uid://bl7r6fawe6jef" path="res://scenes/player_ship.tscn" id="1_plync"]
+[ext_resource type="Script" path="res://Scripts/enemy_spawning.gd" id="1_vu3xm"]
+[ext_resource type="PackedScene" uid="uid://kace24d382um" path="res://scenes/circle_enemy.tscn" id="3_w5bj2"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_vu3xm")
+
+[node name="PlayerShip" parent="." instance=ExtResource("1_plync")]
+position = Vector2(625, 303)
+
+[node name="circle_enemy" parent="." instance=ExtResource("3_w5bj2")]
