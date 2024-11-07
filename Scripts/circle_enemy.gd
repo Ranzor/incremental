@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 func take_damage(damage) -> void:
 	current_health -= damage
 	if current_health <= 0:
-		queue_free()
+		die()
 
 func _draw() -> void:
 	draw_circle(Vector2(0,0), 15, Color(1,0,0),true)
@@ -35,4 +35,8 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("players"):
 		print("hit the dude!")
 		area.take_damage(damage)
-		queue_free()
+		die()
+
+func die() -> void:
+	PlayerData.upgrade_points += 1	
+	queue_free()

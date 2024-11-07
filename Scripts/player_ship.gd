@@ -4,6 +4,10 @@ extends Area2D
 @export var max_health : int = 100
 var current_health : int = max_health
 
+@export var damage : int = 10
+@export var multi_shot_level : int = 0
+
+
 @export var triangle_size : float = 20.0
 @export var rotation_speed : float = 3.0
 @export var rotation_tolerance : float = 0.05
@@ -15,6 +19,15 @@ var points
 var is_aligned : bool = false
 
 func _ready() -> void:
+	fire_rate = PlayerData.fire_rate
+	print("Fire Rate: " + str(fire_rate))
+	max_health = PlayerData.max_health
+	print("Max Health: " + str(max_health))
+	current_health = max_health
+	damage = PlayerData.damage
+	print("Damage : " + str(damage))
+	multi_shot_level = PlayerData.multi_shot_level	
+	
 	add_to_group("players")
 	points = [ 
 		Vector2(0, -triangle_size), 
@@ -67,7 +80,8 @@ func take_damage(damage : int ) -> void:
 		
 func die() -> void:
 	print("Game Over! The player has died")
-	get_tree().paused = true
+	print("Upgrade Points: " + str(PlayerData.upgrade_points))
+	get_tree().change_scene_to_file("res://scenes/upgrade_menu.tscn")
 
 func attempt_shoot() -> void:
 	if is_aligned:
@@ -78,6 +92,7 @@ func shoot_projectile():
 	projectile_instance.position = position
 	get_parent().add_child(projectile_instance)	
 	projectile_instance.set_target_direction(target_direction)
+	projectile_instance.damage = damage
 
 
 func _draw() -> void:
