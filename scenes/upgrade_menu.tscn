@@ -25,18 +25,22 @@ offset_bottom = 348.0
 
 [node name="FireRateButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "Fire Rate"
 
 [node name="HealthButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "Max Health"
 
 [node name="DamageButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "Damage"
 
 [node name="MultiShotButton" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
+disabled = true
 text = "Multi Shot"
 
 [node name="RestartButton" type="Button" parent="Panel/VBoxContainer"]
